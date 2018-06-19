@@ -2,7 +2,7 @@
 // at {{ https://cloud.google.com/console }}.
 // If you run this code from a server other than http://localhost,
 // you need to register your own client ID.
-var OAUTH2_CLIENT_ID = '544051965113-fh0hit4rpd1f0q6u3kcobvli56gdforj.apps.googleusercontent.com';
+var OAUTH2_CLIENT_ID = '__YOUR_CLIENT_ID__';
 var OAUTH2_SCOPES = [
   'https://www.googleapis.com/auth/youtube'
 ];
@@ -52,6 +52,7 @@ function handleAuthResult(authResult) {
 // are required to use the Google APIs JS client. More info is available at
 // https://developers.google.com/api-client-library/javascript/dev/dev_jscript#loading-the-client-library-and-the-api
 function loadAPIClientInterfaces() {
+  debugger
   gapi.client.load('youtube', 'v3', function() {
     handleAPILoaded();
   });

@@ -6,7 +6,6 @@ function handleAPILoaded() {
   
   // Search for a specified string.
   function search() {
-    debugger
     var q = $('#query').val();
     var request = gapi.client.youtube.search.list({
       q: q,
