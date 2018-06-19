@@ -7,9 +7,10 @@ var OAUTH2_SCOPES = [
   'https://www.googleapis.com/auth/youtube'
 ];
 
+$(document).ready(googleApiClientReady());
+
 // Upon loading, the Google APIs JS client automatically invokes this callback.
-googleApiClientReady = function() {
-  debugger
+function googleApiClientReady () {
   gapi.auth.init(function() {
     window.setTimeout(checkAuth, 1);
   });
