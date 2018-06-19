@@ -9,6 +9,7 @@ var OAUTH2_SCOPES = [
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
+  debugger
   gapi.auth.init(function() {
     window.setTimeout(checkAuth, 1);
   });
