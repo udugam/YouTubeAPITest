@@ -28,10 +28,28 @@
       }).then(function(response) {
         var resultsArray = response.items
         resultsArray.forEach(function(element) {
-          $("#results").append("<li>"+element.snippet.title+"</li>");
+          var listedVideo = $("<li>");
+          listedVideo.addClass("listedVideo");
+          listedVideo.attr("videoID-data", element.id.videoId)
+          listedVideo.text(element.snippet.title);
+          $("#results").append(listedVideo);
         })
       });
     });
+
+    $("body").on("click", ".listedVideo", function() {
+      var queryURL2 = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId="+$(this).attr("videoID-data")+"&type=video&key="+API_KEY;
+      $.ajax({
+        url: queryURL2,
+        method: 'GET'
+      }).then(function(response) {
+        var relatedResultsArray = response.items;
+        relatedResultsArray.forEach(function(element) {
+          $("#relatedResults").append("<li>"+element.snippet.title+"</li>");
+        })
+      })
+    })
+
   </script>
 </body>
 
